@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import userData from './userData'
 
 class App extends Component {
+  
   render() {
+    const users = userData.userData.map( (element,index) => {
+      return(
+        <div className='card' key={`${element.name}-${element.email}-${element.age}`}>
+          <h2>{element.name}</h2>
+          <h2>{element.age}</h2>
+          <h2>{element.email}</h2>
+        </div>
+      )
+    });
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+          {users}
       </div>
     );
   }
